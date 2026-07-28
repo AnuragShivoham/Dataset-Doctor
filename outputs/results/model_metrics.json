@@ -1,0 +1,8 @@
+{
+    "mean_absolute_error": 2.1221,
+    "mean_squared_error": 7.1821,
+    "root_mean_squared_error": 2.6799,
+    "r2_score": 0.974744,
+    "training_samples": 500,
+    "testing_records": 5000
+}

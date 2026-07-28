@@ -1,0 +1,39 @@
+{
+    "target_column": "health_score",
+    "feature_count": 25,
+    "feature_names": [
+        "num_rows",
+        "numerical_columns",
+        "categorical_columns",
+        "number_of_classes",
+        "memory_usage_mb",
+        "missing_percentage",
+        "duplicate_percentage",
+        "outlier_percentage",
+        "infinite_value_percentage",
+        "invalid_category_percentage",
+        "target_missing_percentage",
+        "class_imbalance_ratio",
+        "average_absolute_skewness",
+        "datatype_errors",
+        "constant_columns",
+        "highly_correlated_features",
+        "high_missing_columns",
+        "unique_identifier_columns",
+        "leakage_detected",
+        "schema_mismatch_detected",
+        "encoding_issue_detected",
+        "train_test_overlap_percentage",
+        "feature_name_quality_score",
+        "task_type_Classification",
+        "task_type_Regression"
+    ],
+    "categorical_columns": [
+        "task_type"
+    ],
+    "non_feature_columns": [
+        "dataset_id",
+        "diagnosis",
+        "recommendations"
+    ]
+}
