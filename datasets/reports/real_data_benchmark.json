@@ -1,0 +1,1631 @@
+{
+  "benchmark": "dataset_doctor_real_data_v1",
+  "run_at_utc": "2026-10-04T09:19:01.050453+00:00",
+  "read_only": true,
+  "results": [
+    {
+      "dataset_id": "iris",
+      "modality": "tabular",
+      "status": "completed",
+      "dataset": {
+        "rows": 150,
+        "columns": 5
+      },
+      "health": {
+        "score": 99.3,
+        "grade": "Excellent",
+        "components": {
+          "completeness": 100.0,
+          "validity": 100.0,
+          "consistency": 100.0,
+          "duplicates": 98.7,
+          "outliers": 94.7,
+          "balance": 100.0,
+          "leakage": 100.0
+        },
+        "weights": {
+          "completeness": 0.2,
+          "validity": 0.2,
+          "consistency": 0.15,
+          "duplicates": 0.1,
+          "outliers": 0.1,
+          "balance": 0.1,
+          "leakage": 0.15
+        }
+      },
+      "finding_counts": {
+        "duplicate_rows": 1,
+        "outliers": 1
+      },
+      "findings": [
+        {
+          "analyzer": "duplicates",
+          "issue_type": "duplicate_rows",
+          "severity": "low",
+          "message": "1 duplicate rows found (0.7% of rows)",
+          "score_impact": 0.07,
+          "column": null,
+          "metadata": {
+            "duplicate_rows": 1,
+            "duplicate_percentage": 0.67
+          }
+        },
+        {
+          "analyzer": "outliers",
+          "issue_type": "outliers",
+          "severity": "medium",
+          "message": "sepal width (cm) has 4 IQR outliers (2.67% of non-missing values).",
+          "score_impact": 0.2666666666666667,
+          "column": "sepal width (cm)",
+          "metadata": {
+            "outlier_count": 4,
+            "outlier_percentage": 2.67,
+            "method": "IQR",
+            "lower_bound": 2.05,
+            "upper_bound": 4.05
+          }
+        }
+      ],
+      "summary": {
+        "profile": {
+          "rows": 150,
+          "columns": 5,
+          "numeric_columns": [
+            "sepal length (cm)",
+            "sepal width (cm)",
+            "petal length (cm)",
+            "petal width (cm)",
+            "target"
+          ],
+          "categorical_columns": [],
+          "boolean_columns": [],
+          "datetime_columns": [],
+          "missing_cells": 0,
+          "duplicate_rows": 1,
+          "memory_usage_bytes": 6132
+        },
+        "columns": [
+          {
+            "column": "sepal length (cm)",
+            "dtype": "float64",
+            "rows": 150,
+            "missing_count": 0,
+            "missing_percentage": 0.0,
+            "unique_count": 35,
+            "statistics": {
+              "min": 4.3,
+              "max": 7.9,
+              "mean": 5.843333333333334,
+              "std": 0.828066127977863
+            }
+          },
+          {
+            "column": "sepal width (cm)",
+            "dtype": "float64",
+            "rows": 150,
+            "missing_count": 0,
+            "missing_percentage": 0.0,
+            "unique_count": 23,
+            "statistics": {
+              "min": 2.0,
+              "max": 4.4,
+              "mean": 3.0573333333333337,
+              "std": 0.4358662849366982
+            }
+          },
+          {
+            "column": "petal length (cm)",
+            "dtype": "float64",
+            "rows": 150,
+            "missing_count": 0,
+            "missing_percentage": 0.0,
+            "unique_count": 43,
+            "statistics": {
+              "min": 1.0,
+              "max": 6.9,
+              "mean": 3.7580000000000005,
+              "std": 1.7652982332594662
+            }
+          },
+          {
+            "column": "petal width (cm)",
+            "dtype": "float64",
+            "rows": 150,
+            "missing_count": 0,
+            "missing_percentage": 0.0,
+            "unique_count": 22,
+            "statistics": {
+              "min": 0.1,
+              "max": 2.5,
+              "mean": 1.1993333333333336,
+              "std": 0.7622376689603465
+            }
+          },
+          {
+            "column": "target",
+            "dtype": "int64",
+            "rows": 150,
+            "missing_count": 0,
+            "missing_percentage": 0.0,
+            "unique_count": 3,
+            "statistics": {
+              "min": 0,
+              "max": 2,
+              "mean": 1.0,
+              "std": 0.8192319205190405
+            }
+          }
+        ],
+        "missing_values": {
+          "total_missing_cells": 0,
+          "columns_with_missing": 0,
+          "columns": []
+        },
+        "duplicates": {
+          "duplicate_rows": 1,
+          "duplicate_percentage": 0.67
+        },
+        "outliers": {
+          "method": "IQR",
+          "columns": [
+            {
+              "column": "sepal length (cm)",
+              "outlier_count": 0,
+              "outlier_percentage": 0.0,
+              "method": "IQR",
+              "lower_bound": 3.1499999999999986,
+              "upper_bound": 8.350000000000001
+            },
+            {
+              "column": "sepal width (cm)",
+              "outlier_count": 4,
+              "outlier_percentage": 2.67,
+              "method": "IQR",
+              "lower_bound": 2.05,
+              "upper_bound": 4.05
+            },
+            {
+              "column": "petal length (cm)",
+              "outlier_count": 0,
+              "outlier_percentage": 0.0,
+              "method": "IQR",
+              "lower_bound": -3.649999999999999,
+              "upper_bound": 10.349999999999998
+            },
+            {
+              "column": "petal width (cm)",
+              "outlier_count": 0,
+              "outlier_percentage": 0.0,
+              "method": "IQR",
+              "lower_bound": -1.95,
+              "upper_bound": 4.05
+            }
+          ]
+        },
+        "datatypes": {
+          "columns_checked": []
+        },
+        "leakage": {
+          "target_column": "target",
+          "columns": [
+            {
+              "column": "sepal length (cm)",
+              "unique_ratio": 0.2333,
+              "identifier_like": false,
+              "identifier_name_match": false
+            },
+            {
+              "column": "sepal width (cm)",
+              "unique_ratio": 0.1533,
+              "identifier_like": false,
+              "identifier_name_match": false
+            },
+            {
+              "column": "petal length (cm)",
+              "unique_ratio": 0.2867,
+              "identifier_like": false,
+              "identifier_name_match": false
+            },
+            {
+              "column": "petal width (cm)",
+              "unique_ratio": 0.1467,
+              "identifier_like": false,
+              "identifier_name_match": false
+            }
+          ],
+          "suspicious_target_relationships": []
+        },
+        "imbalance": {
+          "target_column": "target",
+          "class_counts": [
+            {
+              "class": 0,
+              "count": 50,
+              "percentage": 33.33
+            },
+            {
+              "class": 1,
+              "count": 50,
+              "percentage": 33.33
+            },
+            {
+              "class": 2,
+              "count": 50,
+              "percentage": 33.33
+            }
+          ],
+          "status": "healthy",
+          "missing_target_count": 0,
+          "minority_class": null,
+          "majority_class": null,
+          "imbalance_ratio": 1.0
+        },
+        "health": {
+          "score": 99.3,
+          "grade": "Excellent",
+          "components": {
+            "completeness": 100.0,
+            "validity": 100.0,
+            "consistency": 100.0,
+            "duplicates": 98.7,
+            "outliers": 94.7,
+            "balance": 100.0,
+            "leakage": 100.0
+          },
+          "weights": {
+            "completeness": 0.2,
+            "validity": 0.2,
+            "consistency": 0.15,
+            "duplicates": 0.1,
+            "outliers": 0.1,
+            "balance": 0.1,
+            "leakage": 0.15
+          }
+        }
+      },
+      "source_sha256": "2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5",
+      "expected_checks": [
+        {
+          "check": "missing_values",
+          "expected": false,
+          "actual": false,
+          "result": "PASS"
+        },
+        {
+          "check": "class_imbalance",
+          "expected": false,
+          "actual": false,
+          "result": "PASS"
+        },
+        {
+          "check": "known_complete_balanced_source",
+          "expected": true,
+          "actual": true,
+          "result": "PASS"
+        }
+      ]
+    },
+    {
+      "dataset_id": "brown_news_hobbies",
+      "modality": "text",
+      "status": "completed",
+      "dataset": {
+        "rows": 80,
+        "columns": 1
+      },
+      "health": {
+        "score": 100.0,
+        "grade": "Excellent",
+        "components": {
+          "completeness": 100.0,
+          "validity": 100.0,
+          "consistency": 100.0,
+          "duplicates": 100.0,
+          "outliers": 100.0,
+          "balance": 100.0,
+          "leakage": 100.0
+        },
+        "weights": {
+          "completeness": 0.2,
+          "validity": 0.2,
+          "consistency": 0.15,
+          "duplicates": 0.1,
+          "outliers": 0.1,
+          "balance": 0.1,
+          "leakage": 0.15
+        }
+      },
+      "finding_counts": {
+        "possible_pii": 3,
+        "very_long_document": 80
+      },
+      "findings": [
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2021 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca01",
+            "word_count": 2021,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2046 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca02",
+            "word_count": 2046,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2057 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca03",
+            "word_count": 2057,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2038 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca04",
+            "word_count": 2038,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2056 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca05",
+            "word_count": 2056,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2038 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca06",
+            "word_count": 2038,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2103 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca07",
+            "word_count": 2103,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2030 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca08",
+            "word_count": 2030,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2068 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca09",
+            "word_count": 2068,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2052 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca10",
+            "word_count": 2052,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2129 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca11",
+            "word_count": 2129,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2085 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca12",
+            "word_count": 2085,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2089 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca13",
+            "word_count": 2089,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2094 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca14",
+            "word_count": 2094,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2099 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca15",
+            "word_count": 2099,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2100 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca16",
+            "word_count": 2100,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2039 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca17",
+            "word_count": 2039,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2047 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca18",
+            "word_count": 2047,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2062 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca19",
+            "word_count": 2062,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2050 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca20",
+            "word_count": 2050,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2052 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca21",
+            "word_count": 2052,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2065 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca22",
+            "word_count": 2065,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2060 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca23",
+            "word_count": 2060,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2089 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca24",
+            "word_count": 2089,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2058 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca25",
+            "word_count": 2058,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2097 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca26",
+            "word_count": 2097,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2071 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca27",
+            "word_count": 2071,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2062 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca28",
+            "word_count": 2062,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2087 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca29",
+            "word_count": 2087,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2060 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca30",
+            "word_count": 2060,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2084 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca31",
+            "word_count": 2084,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2049 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca32",
+            "word_count": 2049,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2081 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca33",
+            "word_count": 2081,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2061 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca34",
+            "word_count": 2061,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2029 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca35",
+            "word_count": 2029,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2060 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca36",
+            "word_count": 2060,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2087 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca37",
+            "word_count": 2087,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2043 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca38",
+            "word_count": 2043,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2073 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca39",
+            "word_count": 2073,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2099 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca40",
+            "word_count": 2099,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2037 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca41",
+            "word_count": 2037,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2089 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca42",
+            "word_count": 2089,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2085 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca43",
+            "word_count": 2085,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2060 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ca44",
+            "word_count": 2060,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2105 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce01",
+            "word_count": 2105,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2048 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce02",
+            "word_count": 2048,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2086 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce03",
+            "word_count": 2086,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2090 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce04",
+            "word_count": 2090,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2044 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce05",
+            "word_count": 2044,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2038 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce06",
+            "word_count": 2038,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2144 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce07",
+            "word_count": 2144,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2032 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce08",
+            "word_count": 2032,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2225 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce09",
+            "word_count": 2225,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2234 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce10",
+            "word_count": 2234,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2054 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce11",
+            "word_count": 2054,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2076 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce12",
+            "word_count": 2076,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2035 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce13",
+            "word_count": 2035,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2099 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce14",
+            "word_count": 2099,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2032 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce15",
+            "word_count": 2032,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2076 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce16",
+            "word_count": 2076,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2042 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce17",
+            "word_count": 2042,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2049 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce18",
+            "word_count": 2049,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2062 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce19",
+            "word_count": 2062,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2067 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce20",
+            "word_count": 2067,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2008 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce21",
+            "word_count": 2008,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2073 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce22",
+            "word_count": 2073,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2030 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce23",
+            "word_count": 2030,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2023 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce24",
+            "word_count": 2023,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2053 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce25",
+            "word_count": 2053,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2030 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce26",
+            "word_count": 2030,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2065 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce27",
+            "word_count": 2065,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2043 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce28",
+            "word_count": 2043,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2029 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce29",
+            "word_count": 2029,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2079 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce30",
+            "word_count": 2079,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2050 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce31",
+            "word_count": 2050,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2077 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce32",
+            "word_count": 2077,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2051 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce33",
+            "word_count": 2051,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2066 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce34",
+            "word_count": 2066,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2080 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce35",
+            "word_count": 2080,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_quality",
+          "issue_type": "very_long_document",
+          "severity": "medium",
+          "message": "Document has 2087 words, above the configured maximum of 1000.",
+          "score_impact": 2.0,
+          "column": null,
+          "metadata": {
+            "document": "ce36",
+            "word_count": 2087,
+            "maximum_words": 1000
+          }
+        },
+        {
+          "analyzer": "text_privacy",
+          "issue_type": "possible_pii",
+          "severity": "high",
+          "message": "Possible phone indicator detected.",
+          "score_impact": 5.0,
+          "column": null,
+          "metadata": {
+            "pattern": "phone",
+            "count": 1,
+            "document": "ce09"
+          }
+        },
+        {
+          "analyzer": "text_privacy",
+          "issue_type": "possible_pii",
+          "severity": "high",
+          "message": "Possible phone indicator detected.",
+          "score_impact": 5.0,
+          "column": null,
+          "metadata": {
+            "pattern": "phone",
+            "count": 1,
+            "document": "ce26"
+          }
+        },
+        {
+          "analyzer": "text_privacy",
+          "issue_type": "possible_pii",
+          "severity": "high",
+          "message": "Possible phone indicator detected.",
+          "score_impact": 5.0,
+          "column": null,
+          "metadata": {
+            "pattern": "phone",
+            "count": 1,
+            "document": "ce35"
+          }
+        }
+      ],
+      "summary": {
+        "statistics": {
+          "document_count": 80,
+          "total_characters": 984391,
+          "total_words": 165423,
+          "average_characters": 12304.89,
+          "average_words": 2067.79,
+          "minimum_words": 2008,
+          "maximum_words": 2234,
+          "median_words": 2061.5,
+          "empty_documents": 0,
+          "very_short_documents": 0,
+          "very_long_documents": 80,
+          "min_words_threshold": 3,
+          "max_words_threshold": 1000,
+          "label_distribution": {
+            "hobbies": 36,
+            "news": 44
+          },
+          "unlabeled_documents": 0
+        },
+        "quality": {
+          "empty_documents": 0,
+          "very_short_documents": 0,
+          "very_long_documents": 80,
+          "min_words_threshold": 3,
+          "max_words_threshold": 1000
+        },
+        "duplicates": {
+          "exact_duplicate_groups": 0,
+          "normalized_duplicate_groups": 0,
+          "duplicate_groups": 0,
+          "duplicate_documents": 0
+        },
+        "distribution": {
+          "class_count": 2,
+          "classes": {
+            "hobbies": {
+              "count": 36,
+              "percentage": 45.0
+            },
+            "news": {
+              "count": 44,
+              "percentage": 55.0
+            }
+          },
+          "minority_class": "hobbies",
+          "majority_class": "news",
+          "imbalance_ratio": 1.2222,
+          "status": "healthy",
+          "unlabeled_documents": 0
+        },
+        "privacy": {
+          "pattern_counts": {
+            "email": 0,
+            "phone": 3,
+            "ip_address": 0,
+            "url": 0,
+            "credit_card_like": 0
+          },
+          "documents_with_possible_pii": 3
+        },
+        "health": {
+          "score": 100.0,
+          "grade": "Excellent",
+          "components": {
+            "completeness": 100.0,
+            "validity": 100.0,
+            "consistency": 100.0,
+            "duplicates": 100.0,
+            "outliers": 100.0,
+            "balance": 100.0,
+            "leakage": 100.0
+          },
+          "weights": {
+            "completeness": 0.2,
+            "validity": 0.2,
+            "consistency": 0.15,
+            "duplicates": 0.1,
+            "outliers": 0.1,
+            "balance": 0.1,
+            "leakage": 0.15
+          }
+        }
+      },
+      "source_sha256": "093cb338fd9f2153b35a643c395d3437c5fab6e469cb43c728e38f35e9f27893",
+      "expected_checks": [],
+      "review_notes": [
+        "Very-long-document findings reflect the analyzer default; review corpus-specific length limits before scoring these as defects.",
+        "Possible PII pattern matches are indicators only; manually review before treating them as true positives."
+      ]
+    },
+    {
+      "dataset_id": "sklearn_attributed_photos",
+      "modality": "image",
+      "status": "completed",
+      "dataset": {
+        "rows": 2,
+        "columns": 1
+      },
+      "health": {
+        "score": 100.0,
+        "grade": "Excellent",
+        "components": {
+          "completeness": 100.0,
+          "validity": 100.0,
+          "consistency": 100.0,
+          "duplicates": 100.0,
+          "outliers": 100.0,
+          "balance": 100.0,
+          "leakage": 100.0
+        },
+        "weights": {
+          "completeness": 0.2,
+          "validity": 0.2,
+          "consistency": 0.15,
+          "duplicates": 0.1,
+          "outliers": 0.1,
+          "balance": 0.1,
+          "leakage": 0.15
+        }
+      },
+      "finding_counts": {},
+      "findings": [],
+      "summary": {
+        "integrity": {
+          "corrupt_images": 0,
+          "zero_byte_files": 0,
+          "unsupported_files": 0,
+          "invalid_dimensions": 0
+        },
+        "quality": [
+          {
+            "file": "C:\\PRACTICE-SOCRATES\\datasets\\raw\\image\\sklearn_samples\\images\\china.jpg",
+            "width": 640,
+            "height": 427,
+            "aspect_ratio": 1.4988,
+            "brightness_mean": 144.721,
+            "blur_score": 5624.201
+          },
+          {
+            "file": "C:\\PRACTICE-SOCRATES\\datasets\\raw\\image\\sklearn_samples\\images\\flower.jpg",
+            "width": 640,
+            "height": 427,
+            "aspect_ratio": 1.4988,
+            "brightness_mean": 66.145,
+            "blur_score": 417.821
+          }
+        ],
+        "duplicates": {
+          "duplicate_groups": 0,
+          "duplicate_files": 0,
+          "method": "sha256"
+        },
+        "distribution": {
+          "classes": {
+            "unlabeled": 2
+          },
+          "minority_class": null,
+          "majority_class": null,
+          "imbalance_ratio": null,
+          "status": "single_class"
+        },
+        "semantic": {
+          "status": "not_requested",
+          "images_checked": 0,
+          "message": "Provide expected_domain or class_descriptions to enable semantic checks."
+        },
+        "health": {
+          "score": 100.0,
+          "grade": "Excellent",
+          "components": {
+            "completeness": 100.0,
+            "validity": 100.0,
+            "consistency": 100.0,
+            "duplicates": 100.0,
+            "outliers": 100.0,
+            "balance": 100.0,
+            "leakage": 100.0
+          },
+          "weights": {
+            "completeness": 0.2,
+            "validity": 0.2,
+            "consistency": 0.15,
+            "duplicates": 0.1,
+            "outliers": 0.1,
+            "balance": 0.1,
+            "leakage": 0.15
+          }
+        }
+      },
+      "source_sha256": {
+        "china.jpg": "8378025ad2519d649d02e32bd98990db4ab572357d9f09841c2fbfbb4fefad29",
+        "flower.jpg": "a77f6ec41e353afdf8bdff2ea981b2955535d8d83294f8cfa49cf4e423dd5638"
+      },
+      "expected_checks": [
+        {
+          "check": "readable_images",
+          "expected": 2,
+          "actual": 2,
+          "result": "PASS"
+        }
+      ],
+      "review_notes": [
+        "Semantic/domain analysis is not available without an explicitly supplied embedding backend."
+      ]
+    }
+  ]
+}

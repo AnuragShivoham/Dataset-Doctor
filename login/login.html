@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login — SCORATES</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── Navbar ── */
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .nav-logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+    .nav-logo span { color: #cc00ff; }
+    .nav-links { display: flex; gap: 32px; }
+    .nav-links a { color: #00e5ff; text-decoration: none; font-size: 0.95rem; }
+    .nav-links a:hover { color: #fff; }
+    .nav-tagline { font-size: 0.85rem; color: #aaa; }
+    .nav-tagline::before { content: '• '; color: #cc00ff; }
+
+    /* ── Main content ── */
+    main {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      padding: 60px 48px;
+      gap: 48px;
+    }
+
+    /* ── Left column ── */
+    .left-col {
+      flex: 1;
+      max-width: 480px;
+    }
+    .left-col .eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: #00e5ff;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .left-col h1 {
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+    .left-col h1 .accent {
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .left-col p { color: #888; font-size: 0.95rem; line-height: 1.6; margin-bottom: 28px; }
+    .left-col .signup-link { font-size: 0.9rem; color: #666; }
+    .left-col .signup-link a { color: #00e5ff; text-decoration: none; margin-left: 4px; }
+    .left-col .signup-link a:hover { text-decoration: underline; }
+
+    /* ── Right column — card ── */
+    .right-col {
+      flex: 0 0 420px;
+    }
+    .card {
+      background: #0d0d0d;
+      border: 1px solid #222;
+      border-radius: 12px;
+      padding: 40px;
+    }
+    .card h2 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+    .card .subtitle { color: #666; font-size: 0.88rem; margin-bottom: 28px; }
+
+    /* ── Form ── */
+    .form-group { margin-bottom: 20px; }
+    .form-group label { display: block; font-size: 0.85rem; color: #ccc; margin-bottom: 8px; }
+    .form-group input {
+      width: 100%;
+      background: #000;
+      border: 1.5px solid #ff2d55;
+      border-radius: 6px;
+      padding: 12px 14px;
+      color: #fff;
+      font-size: 0.95rem;
+      outline: none;
+      transition: border-color 0.2s;
+    }
+    .form-group input:focus { border-color: #ff00ff; }
+    .form-group input[aria-invalid="true"] { border-color: #ff4444; }
+    .form-group input::placeholder { color: #555; }
+
+    .error-msg {
+      display: none;
+      color: #ff4444;
+      font-size: 0.78rem;
+      margin-top: 5px;
+    }
+    .error-msg.visible { display: block; }
+
+    .forgot-row { text-align: right; margin-top: -10px; margin-bottom: 24px; }
+    .forgot-row a { color: #00e5b0; font-size: 0.82rem; text-decoration: none; }
+    .forgot-row a:hover { text-decoration: underline; }
+
+    .btn-submit {
+      width: 100%;
+      padding: 14px;
+      background: #ff00aa;
+      color: #fff;
+      font-size: 1rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s, transform 0.1s;
+    }
+    .btn-submit:hover { background: #e600a0; }
+    .btn-submit:active { transform: scale(0.98); }
+
+    .toast {
+      display: none;
+      margin-top: 16px;
+      padding: 10px 14px;
+      border-radius: 6px;
+      font-size: 0.85rem;
+      text-align: center;
+    }
+    .toast.error { display: block; background: #2a0000; color: #ff6666; border: 1px solid #ff4444; }
+    .toast.success { display: block; background: #002a12; color: #00e5b0; border: 1px solid #00e5b0; }
+
+    /* ── Responsive ── */
+    @media (max-width: 768px) {
+      nav { padding: 14px 20px; }
+      .nav-links { gap: 16px; }
+      .nav-tagline { display: none; }
+      main { flex-direction: column; padding: 40px 20px; align-items: stretch; }
+      .right-col { flex: unset; width: 100%; }
+      .card { padding: 28px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo"><span>S</span>CORATES</div>
+    <div class="nav-links">
+      <a href="#">About</a>
+      <a href="#">Help</a>
+      <a href="#">Ask</a>
+    </div>
+    <div class="nav-tagline">build your skill</div>
+  </nav>
+
+  <main>
+    <div class="left-col">
+      <p class="eyebrow">Welcome to the SCORATES</p>
+      <h1>Login to <span class="accent">SCORATES</span><br>and continue.</h1>
+      <p>Access your account and manage your digital experience with PI-SERVICE.</p>
+      <p class="signup-link">
+        New to <strong>SCORATES</strong>?
+        <a href="signup.html">Create an account →</a>
+      </p>
+    </div>
+
+    <div class="right-col">
+      <div class="card">
+        <h2>Login</h2>
+        <p class="subtitle">Enter your details to access your account.</p>
+
+        <form id="loginForm" novalidate>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email"
+                   placeholder="you@example.com"
+                   autocomplete="email">
+            <span class="error-msg" id="email-error" role="alert"></span>
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password"
+                   placeholder="Enter your password"
+                   autocomplete="current-password">
+            <span class="error-msg" id="password-error" role="alert"></span>
+          </div>
+
+          <div class="forgot-row">
+            <a href="#">Forgot password?</a>
+          </div>
+
+          <button type="submit" class="btn-submit">Login →</button>
+          <div class="toast" id="toast" role="alert"></div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="auth.js"></script>
+  <script>
+    const form = document.getElementById('loginForm');
+    const emailInput = document.getElementById('email');
+    const passwordInput = document.getElementById('password');
+    const emailError = document.getElementById('email-error');
+    const passwordError = document.getElementById('password-error');
+    const toast = document.getElementById('toast');
+
+    function setError(input, errorEl, msg) {
+      input.setAttribute('aria-invalid', 'true');
+      errorEl.textContent = msg;
+      errorEl.classList.add('visible');
+    }
+
+    function clearError(input, errorEl) {
+      input.removeAttribute('aria-invalid');
+      errorEl.textContent = '';
+      errorEl.classList.remove('visible');
+    }
+
+    function showToast(msg, type) {
+      toast.textContent = msg;
+      toast.className = 'toast ' + type;
+    }
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      let valid = true;
+
+      clearError(emailInput, emailError);
+      clearError(passwordInput, passwordError);
+      toast.className = 'toast';
+
+      const email = emailInput.value.trim();
+      const password = passwordInput.value;
+
+      if (!email) {
+        setError(emailInput, emailError, 'Email is required.');
+        valid = false;
+      } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        setError(emailInput, emailError, 'Enter a valid email address.');
+        valid = false;
+      }
+
+      if (!password) {
+        setError(passwordInput, passwordError, 'Password is required.');
+        valid = false;
+      }
+
+      if (!valid) return;
+
+      const result = Auth.login(email, password);
+      if (result.success) {
+        showToast('Login successful! Redirecting…', 'success');
+        setTimeout(() => { window.location.href = 'success.html'; }, 800);
+      } else {
+        showToast('Invalid email or password.', 'error');
+      }
+    });
+  </script>
+</body>
+</html>

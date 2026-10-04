@@ -1,0 +1,8 @@
+# Dataset payloads are stored locally and must not be committed.
+*
+!.gitignore
+!README.md
+!manifests/
+!manifests/**
+!reports/
+!reports/**

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome — SCORATES</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: #000;
+      color: #fff;
+      font-family: 'Segoe UI', sans-serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    .nav-logo { font-size: 1.4rem; font-weight: 700; letter-spacing: 1px; }
+    .nav-logo span { color: #cc00ff; }
+    .nav-tagline { font-size: 0.85rem; color: #aaa; }
+    .nav-tagline::before { content: '• '; color: #cc00ff; }
+
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    .welcome-badge {
+      font-size: 0.75rem;
+      letter-spacing: 4px;
+      color: #00e5ff;
+      text-transform: uppercase;
+      margin-bottom: 16px;
+    }
+    h1 {
+      font-size: clamp(2rem, 5vw, 3.2rem);
+      font-weight: 800;
+      margin-bottom: 16px;
+    }
+    h1 .accent {
+      background: linear-gradient(to right, #ff00ff, #00ffff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    p { color: #888; font-size: 1rem; margin-bottom: 36px; }
+    .btn-logout {
+      padding: 12px 32px;
+      background: #ff00aa;
+      color: #fff;
+      font-size: 0.95rem;
+      font-weight: 700;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .btn-logout:hover { background: #e600a0; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <div class="nav-logo"><span>S</span>CORATES</div>
+    <div class="nav-tagline">build your skill</div>
+  </nav>
+
+  <main>
+    <p class="welcome-badge">You're in</p>
+    <h1>Welcome back, <span class="accent" id="userName">…</span></h1>
+    <p>You have successfully logged in to your SCORATES account.</p>
+    <button class="btn-logout" onclick="handleLogout()">Logout</button>
+  </main>
+
+  <script src="auth.js"></script>
+  <script>
+    const session = Auth.getSession();
+    if (!session) {
+      window.location.href = 'login.html';
+    } else {
+      document.getElementById('userName').textContent = session.name;
+    }
+
+    function handleLogout() {
+      Auth.logout();
+      window.location.href = 'login.html';
+    }
+  </script>
+</body>
+</html>

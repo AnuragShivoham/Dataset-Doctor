@@ -1,0 +1,19 @@
+# Core tabular analysis, profiling, and baseline ML/security analysis.
+pandas>=2.0
+# Keep NumPy 2.x from replacing NumPy 1.x under existing binary wheels (e.g.
+# pandas 2.1.0); a fresh install can resolve newer compatible versions together.
+numpy>=1.24,<2.0
+scipy>=1.10
+scikit-learn>=1.3
+openpyxl>=3.1
+
+# Image integrity and quality analysis.
+pillow>=10.0
+opencv-python>=4.8,<5
+
+# Model persistence and text analysis helpers.
+joblib>=1.3
+nltk>=3.8
+
+# PyTorch/torchvision are intentionally not included: they are only needed for
+# the future deep-learning image embedding feature and are large platform-specific installs.

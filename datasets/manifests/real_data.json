@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "datasets": [
+    {
+      "id": "iris",
+      "modality": "tabular",
+      "name": "Iris plants",
+      "source": "scikit-learn bundled copy of Fisher's Iris dataset",
+      "source_url": "https://scikit-learn.org/stable/datasets/toy_dataset.html#iris-plants-dataset",
+      "license": "Source data provenance is described by scikit-learn; verify the upstream Fisher/Marshall terms for redistribution.",
+      "version": "scikit-learn dataset file bundled with installed package",
+      "download_date": null,
+      "local_path": "raw/tabular/iris.csv",
+      "sha256": "2a142890aa4d797b0e8746373626a5d81d839bb5a4fd60ac1fbeee6faf0f62d5",
+      "target_column": "target",
+      "expected": {
+        "missing_values": false,
+        "class_imbalance": false,
+        "clean_baseline": true
+      },
+      "notes": "150 records, four numeric features, three balanced classes; package CSV copied as-is."
+    },
+    {
+      "id": "brown_news_hobbies",
+      "modality": "text",
+      "name": "Brown Corpus (news and hobbies categories)",
+      "source": "NLTK Brown Corpus corpus files installed locally",
+      "source_url": "https://www.nltk.org/nltk_data/",
+      "license": "Distributed with permission of the copyright holder; redistribution permitted (per corpus README).",
+      "version": "Local NLTK corpus installation; exact corpus file hashes recorded in manifest after provisioning",
+      "download_date": null,
+      "local_path": "raw/text/brown_news_hobbies.csv",
+      "sha256": "093cb338fd9f2153b35a643c395d3437c5fab6e469cb43c728e38f35e9f27893",
+      "expected": {
+        "real_text": true,
+        "labels": [
+          "news",
+          "hobbies"
+        ]
+      },
+      "notes": "Two genuine Brown Corpus genres provide text records; this is topic/genre data, not sentiment data. Provisioning script does not alter the installed corpus."
+    },
+    {
+      "id": "sklearn_attributed_photos",
+      "modality": "image",
+      "name": "scikit-learn sample photographs (China and flower)",
+      "source": "scikit-learn bundled sample images; original attribution in its datasets/images/README.txt",
+      "source_url": "https://scikit-learn.org/stable/datasets/real_world.html#the-olivetti-faces-dataset",
+      "license": "Creative Commons Attribution 2.0 (CC BY 2.0), per scikit-learn README; retain photographer attribution.",
+      "version": "Files bundled with installed scikit-learn package",
+      "download_date": null,
+      "local_path": "raw/image/sklearn_samples",
+      "sha256": {
+        "china.jpg": "8378025ad2519d649d02e32bd98990db4ab572357d9f09841c2fbfbb4fefad29",
+        "flower.jpg": "a77f6ec41e353afdf8bdff2ea981b2955535d8d83294f8cfa49cf4e423dd5638"
+      },
+      "expected": {
+        "readable_images": 2,
+        "semantic_check": "requires explicit embedding backend"
+      },
+      "notes": "Small real-image integrity fixture, not a medically validated dataset. Flower versus China is a deliberate heterogeneous pair, not an X-ray domain benchmark. See datasets/raw/image/sklearn_samples/ATTRIBUTION.txt."
+    }
+  ]
+}
